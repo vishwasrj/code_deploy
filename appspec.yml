@@ -1,0 +1,14 @@
+#testing webhook
+version: 0.0
+os: linux
+files:
+  - source: script/index.html
+    destination: /var/www/html
+hooks:
+  BeforeInstall:
+    - location: script/install_dependencies.sh
+      timeout: 300
+      runas: root
+    - location: script/start_server.sh
+      timeout: 300
+      runas: root
